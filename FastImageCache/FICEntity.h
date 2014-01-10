@@ -72,6 +72,8 @@ typedef void (^FICEntityImageDrawingBlock)(CGContextRef context, CGSize contextS
  
  @note This block will always be called from the serial dispatch queue used by the image cache.
  */
-- (FICEntityImageDrawingBlock)drawingBlockForImage:(UIImage *)image withFormatName:(NSString *)formatName;
+
+- (FICEntityImageDrawingBlock)drawingBlockForImage:(COCOAImage *)image withFormatName:(NSString *)formatName;
+
 
 @end

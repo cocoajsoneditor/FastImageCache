@@ -11,8 +11,9 @@
 @class FICImageTable;
 
 typedef NS_OPTIONS(NSUInteger, FICImageFormatDevices) {
-    FICImageFormatDevicePhone = 1 << UIUserInterfaceIdiomPhone,
-    FICImageFormatDevicePad = 1 << UIUserInterfaceIdiomPad,
+    FICImageFormatDevicePhone = 1 << 0,
+    FICImageFormatDevicePad = 1 << 1,
+    FICImageFormatDeviceDesktop = 1 << FICImageFormatDevicePad
 };
 
 typedef NS_OPTIONS(NSUInteger, FICImageFormatStyle) {

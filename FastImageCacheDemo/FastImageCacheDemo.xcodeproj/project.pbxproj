@@ -20,6 +20,19 @@
 		2E1BC90117C57CDF00836A7E /* FICDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8FD17C57CD300836A7E /* FICDViewController.m */; };
 		2E64541017FF24C0001D0531 /* FICDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E64540F17FF24C0001D0531 /* FICDTableView.m */; };
 		2EA7994417B2A10200684B86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA7993F17B2A10200684B86 /* main.m */; };
+		7854C5A518804D95003DCE9E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7854C5A418804D95003DCE9E /* Cocoa.framework */; };
+		7854C5AF18804D95003DCE9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7854C5AD18804D95003DCE9E /* InfoPlist.strings */; };
+		7854C5B118804D95003DCE9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7854C5B018804D95003DCE9E /* main.m */; };
+		7854C5B518804D95003DCE9E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7854C5B318804D95003DCE9E /* Credits.rtf */; };
+		7854C5B818804D96003DCE9E /* PTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7854C5B718804D95003DCE9E /* PTAppDelegate.m */; };
+		7854C5BB18804D96003DCE9E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7854C5B918804D96003DCE9E /* MainMenu.xib */; };
+		7854C5BD18804D96003DCE9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7854C5BC18804D96003DCE9E /* Images.xcassets */; };
+		7854C5D618804E18003DCE9E /* FICImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8E417C57C4700836A7E /* FICImageCache.m */; };
+		7854C5D718804E1B003DCE9E /* FICImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8E617C57C4700836A7E /* FICImageFormat.m */; };
+		7854C5D818804E1E003DCE9E /* FICImageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8E817C57C4700836A7E /* FICImageTable.m */; };
+		7854C5D918804E24003DCE9E /* FICImageTableChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8EA17C57C4700836A7E /* FICImageTableChunk.m */; };
+		7854C5DA18804E26003DCE9E /* FICImageTableEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8EC17C57C4700836A7E /* FICImageTableEntry.m */; };
+		7854C5DB18804E29003DCE9E /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BC8EE17C57C4700836A7E /* FICUtilities.m */; };
 		EB171332181F089F00EB0E24 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB171331181F089F00EB0E24 /* CoreImage.framework */; };
 		EB642D8017DCB1750013D644 /* FICDFullscreenPhotoDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB642D7F17DCB1750013D644 /* FICDFullscreenPhotoDisplayController.m */; };
 		EB6BD53818079DAB00D762CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6BD53718079DAB00D762CE /* CoreGraphics.framework */; };
@@ -56,6 +69,21 @@
 		2E64540E17FF24C0001D0531 /* FICDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FICDTableView.h; sourceTree = "<group>"; };
 		2E64540F17FF24C0001D0531 /* FICDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICDTableView.m; sourceTree = "<group>"; };
 		2EA7993F17B2A10200684B86 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7854C5A318804D95003DCE9E /* FastImageCacheDemoOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastImageCacheDemoOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7854C5A418804D95003DCE9E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		7854C5A718804D95003DCE9E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7854C5A818804D95003DCE9E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7854C5A918804D95003DCE9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7854C5AC18804D95003DCE9E /* FastImageCacheDemoOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FastImageCacheDemoOSX-Info.plist"; sourceTree = "<group>"; };
+		7854C5AE18804D95003DCE9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7854C5B018804D95003DCE9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7854C5B218804D95003DCE9E /* FastImageCacheDemoOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastImageCacheDemoOSX-Prefix.pch"; sourceTree = "<group>"; };
+		7854C5B418804D95003DCE9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		7854C5B618804D95003DCE9E /* PTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTAppDelegate.h; sourceTree = "<group>"; };
+		7854C5B718804D95003DCE9E /* PTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTAppDelegate.m; sourceTree = "<group>"; };
+		7854C5BA18804D96003DCE9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7854C5BC18804D96003DCE9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7854C5C318804D96003DCE9E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EB171331181F089F00EB0E24 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EB642D3717DC9C690013D644 /* FastImageCacheDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FastImageCacheDemo-Info.plist"; sourceTree = "<group>"; };
 		EB642D7E17DCB1750013D644 /* FICDFullscreenPhotoDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FICDFullscreenPhotoDisplayController.h; sourceTree = "<group>"; };
@@ -83,6 +111,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7854C5A018804D95003DCE9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7854C5A518804D95003DCE9E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +127,7 @@
 			children = (
 				2E1BC8E017C57C4700836A7E /* FastImageCache */,
 				2EA7993A17B2A0CF00684B86 /* Demo App */,
+				7854C5AA18804D95003DCE9E /* FastImageCacheDemoOSX */,
 				2E095B1217AEBB1200ECE160 /* Frameworks */,
 				2E095B1117AEBB1200ECE160 /* Products */,
 			);
@@ -100,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2E095B1017AEBB1200ECE160 /* FastImageCacheDemo.app */,
+				7854C5A318804D95003DCE9E /* FastImageCacheDemoOSX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +150,9 @@
 				2E095B1517AEBB1200ECE160 /* Foundation.framework */,
 				EBB922BC17DA8E6A00211050 /* QuartzCore.framework */,
 				2E095B1317AEBB1200ECE160 /* UIKit.framework */,
+				7854C5A418804D95003DCE9E /* Cocoa.framework */,
+				7854C5C318804D96003DCE9E /* XCTest.framework */,
+				7854C5A618804D95003DCE9E /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,6 +201,40 @@
 			name = "Demo App";
 			sourceTree = "<group>";
 		};
+		7854C5A618804D95003DCE9E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7854C5A718804D95003DCE9E /* AppKit.framework */,
+				7854C5A818804D95003DCE9E /* CoreData.framework */,
+				7854C5A918804D95003DCE9E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7854C5AA18804D95003DCE9E /* FastImageCacheDemoOSX */ = {
+			isa = PBXGroup;
+			children = (
+				7854C5B618804D95003DCE9E /* PTAppDelegate.h */,
+				7854C5B718804D95003DCE9E /* PTAppDelegate.m */,
+				7854C5B918804D96003DCE9E /* MainMenu.xib */,
+				7854C5BC18804D96003DCE9E /* Images.xcassets */,
+				7854C5AB18804D95003DCE9E /* Supporting Files */,
+			);
+			path = FastImageCacheDemoOSX;
+			sourceTree = "<group>";
+		};
+		7854C5AB18804D95003DCE9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7854C5AC18804D95003DCE9E /* FastImageCacheDemoOSX-Info.plist */,
+				7854C5AD18804D95003DCE9E /* InfoPlist.strings */,
+				7854C5B018804D95003DCE9E /* main.m */,
+				7854C5B218804D95003DCE9E /* FastImageCacheDemoOSX-Prefix.pch */,
+				7854C5B318804D95003DCE9E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EB642D3917DC9D970013D644 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +274,23 @@
 			productReference = 2E095B1017AEBB1200ECE160 /* FastImageCacheDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7854C5A218804D95003DCE9E /* FastImageCacheDemoOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7854C5D418804D96003DCE9E /* Build configuration list for PBXNativeTarget "FastImageCacheDemoOSX" */;
+			buildPhases = (
+				7854C59F18804D95003DCE9E /* Sources */,
+				7854C5A018804D95003DCE9E /* Frameworks */,
+				7854C5A118804D95003DCE9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastImageCacheDemoOSX;
+			productName = FastImageCacheDemoOSX;
+			productReference = 7854C5A318804D95003DCE9E /* FastImageCacheDemoOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -215,6 +307,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2E095B0717AEBB1200ECE160;
 			productRefGroup = 2E095B1117AEBB1200ECE160 /* Products */;
@@ -222,6 +315,7 @@
 			projectRoot = "";
 			targets = (
 				2E095B0F17AEBB1200ECE160 /* FastImageCacheDemo */,
+				7854C5A218804D95003DCE9E /* FastImageCacheDemoOSX */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +327,17 @@
 			files = (
 				EBB922BF17DC08E900211050 /* Demo Images in Resources */,
 				EBC8A5F217FF6DEF007FECD4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7854C5A118804D95003DCE9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7854C5AF18804D95003DCE9E /* InfoPlist.strings in Resources */,
+				7854C5BD18804D96003DCE9E /* Images.xcassets in Resources */,
+				7854C5B518804D95003DCE9E /* Credits.rtf in Resources */,
+				7854C5BB18804D96003DCE9E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +364,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7854C59F18804D95003DCE9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7854C5D618804E18003DCE9E /* FICImageCache.m in Sources */,
+				7854C5D918804E24003DCE9E /* FICImageTableChunk.m in Sources */,
+				7854C5DA18804E26003DCE9E /* FICImageTableEntry.m in Sources */,
+				7854C5D818804E1E003DCE9E /* FICImageTable.m in Sources */,
+				7854C5D718804E1B003DCE9E /* FICImageFormat.m in Sources */,
+				7854C5B818804D96003DCE9E /* PTAppDelegate.m in Sources */,
+				7854C5B118804D95003DCE9E /* main.m in Sources */,
+				7854C5DB18804E29003DCE9E /* FICUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7854C5AD18804D95003DCE9E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7854C5AE18804D95003DCE9E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7854C5B318804D95003DCE9E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7854C5B418804D95003DCE9E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		7854C5B918804D96003DCE9E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7854C5BA18804D96003DCE9E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2E095B3417AEBB1200ECE160 /* Debug */ = {
@@ -353,6 +500,67 @@
 			};
 			name = Release;
 		};
+		7854C5D018804D96003DCE9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FastImageCacheDemoOSX/FastImageCacheDemoOSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "FastImageCacheDemoOSX/FastImageCacheDemoOSX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7854C5D118804D96003DCE9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FastImageCacheDemoOSX/FastImageCacheDemoOSX-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "FastImageCacheDemoOSX/FastImageCacheDemoOSX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,6 +581,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7854C5D418804D96003DCE9E /* Build configuration list for PBXNativeTarget "FastImageCacheDemoOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7854C5D018804D96003DCE9E /* Debug */,
+				7854C5D118804D96003DCE9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

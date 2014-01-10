@@ -8,4 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import <UIKit/UIKit.h>
+
+
+#if TARGET_OS_IPHONE
+    #import <UIKit/UIKit.h>
+    #define COCOAImage UIImage
+
+#else
+    #import <Cocoa/Cocoa.h>
+    #define COCOAImage NSImage
+#endif

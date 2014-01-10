@@ -48,12 +48,37 @@ static NSString *const FICImageFormatDevicesKey = @"devices";
 
 #pragma mark - Property Accessors
 
-- (void)setImageSize:(CGSize)imageSize {
+-(CGFloat) screenScale
+{
+    CGFloat screenScale = 1;
+#if TARGET_OS_IPHONE
+    screenScale = [[UIScreen mainScreen] scale];
+#else
+    float displayScale = 1;
+    if ([[NSScreen mainScreen] respondsToSelector:@selector(backingScaleFactor)]) {
+        NSArray *screens = [NSScreen screens];
+        for (int i = 0; i < [screens count]; i++) {
+            float s = [[screens objectAtIndex:i] backingScaleFactor];
+            if (s > displayScale)
+                displayScale = s;
+        }
+    }
+    
+    screenScale = displayScale;
+    
+#endif
+    
+    return screenScale;
+
+}
+
+- (void)setImageSize:(CGSize)imageSize
+{
     BOOL currentSizeEqualToNewSize = CGSizeEqualToSize(imageSize, _imageSize);
-    if (currentSizeEqualToNewSize == NO) {
+    if (currentSizeEqualToNewSize == NO)
+    {
         _imageSize = imageSize;
-        
-        CGFloat screenScale = [[UIScreen mainScreen] scale];
+         CGFloat screenScale = [self screenScale];
         _pixelSize = CGSizeMake(screenScale * _imageSize.width, screenScale * _imageSize.height);
     }
 }
@@ -151,7 +176,7 @@ static NSString *const FICImageFormatDevicesKey = @"devices";
     [dictionaryRepresentation setValue:[NSNumber numberWithInt:_style] forKey:FICImageFormatStyleKey];
     [dictionaryRepresentation setValue:[NSNumber numberWithUnsignedInteger:_maximumCount] forKey:FICImageFormatMaximumCountKey];
     [dictionaryRepresentation setValue:[NSNumber numberWithInt:_devices] forKey:FICImageFormatDevicesKey];
-    [dictionaryRepresentation setValue:[NSNumber numberWithFloat:[[UIScreen mainScreen] scale]] forKey:FICImageTableScreenScaleKey];
+    [dictionaryRepresentation setValue:[NSNumber numberWithFloat:[self screenScale]] forKey:FICImageTableScreenScaleKey];
     [dictionaryRepresentation setValue:[NSNumber numberWithUnsignedInteger:[FICImageTableEntry metadataVersion]] forKey:FICImageTableEntryDataVersionKey];
     
     return dictionaryRepresentation;

@@ -118,7 +118,8 @@ static NSString *const FICImageTableFormatKey = @"format";
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)initWithFormat:(FICImageFormat *)imageFormat {
+- (instancetype)initWithFormat:(FICImageFormat *)imageFormat
+{
     self = [super init];
     
     if (self != nil) {
@@ -130,7 +131,21 @@ static NSString *const FICImageTableFormatKey = @"format";
         _imageFormat = [imageFormat copy];
         _imageFormatDictionary = [imageFormat dictionaryRepresentation];
         
+#if OS_TARGET_IPHONE
         _screenScale = [[UIScreen mainScreen] scale];
+#else
+        float displayScale = 1;
+        if ([[NSScreen mainScreen] respondsToSelector:@selector(backingScaleFactor)]) {
+            NSArray *screens = [NSScreen screens];
+            for (int i = 0; i < [screens count]; i++) {
+                float s = [[screens objectAtIndex:i] backingScaleFactor];
+                if (s > displayScale)
+                    displayScale = s;
+            }
+        }
+        
+        _screenScale = displayScale;
+#endif
         
         CGSize pixelSize = [_imageFormat pixelSize];
         NSInteger bytesPerPixel = [_imageFormat bytesPerPixel];
@@ -296,8 +311,9 @@ static NSString *const FICImageTableFormatKey = @"format";
     }
 }
 
-- (UIImage *)newImageForEntityUUID:(NSString *)entityUUID sourceImageUUID:(NSString *)sourceImageUUID {
-    UIImage *image = nil;
+- (COCOAImage *)newImageForEntityUUID:(NSString *)entityUUID sourceImageUUID:(NSString *)sourceImageUUID
+{
+    COCOAImage *image = nil;
     
     if (entityUUID != nil && sourceImageUUID != nil) {
         [_lock lock];
@@ -330,7 +346,14 @@ static NSString *const FICImageTableFormatKey = @"format";
                 CGColorSpaceRelease(colorSpace);
                 
                 if (imageRef != NULL) {
+#if TARGET_OS_IPHONE
                     image = [[UIImage alloc] initWithCGImage:imageRef scale:_screenScale orientation:UIImageOrientationUp];
+#else
+                    CGFloat width = CGImageGetWidth(imageRef);
+                    CGFloat height = CGImageGetHeight(imageRef);
+                    
+                    image = [[NSImage alloc] initWithCGImage:imageRef size:NSMakeSize(width / _screenScale, height / _screenScale)];
+#endif
                     CGImageRelease(imageRef);
                 } else {
                     NSString *message = [NSString stringWithFormat:@"*** FIC Error: %s could not create a new CGImageRef for entity UUID %@.", __PRETTY_FUNCTION__, entityUUID];

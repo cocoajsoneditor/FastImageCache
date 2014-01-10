@@ -13,8 +13,15 @@
 @protocol FICEntity;
 @protocol FICImageCacheDelegate;
 
+#if TARGET_OS_IPHONE
 typedef void (^FICImageCacheCompletionBlock)(id <FICEntity> entity, NSString *formatName, UIImage *image);
 typedef void (^FICImageRequestCompletionBlock)(UIImage *sourceImage);
+
+#else
+typedef void (^FICImageCacheCompletionBlock)(id <FICEntity> entity, NSString *formatName, NSImage *image);
+typedef void (^FICImageRequestCompletionBlock)(NSImage *sourceImage);
+#endif
+
 
 /**
  `FICImageCache` is the primary class for managing and interacting with the image cache. Applications using the image cache create one or more `<FICImageFormat>`
@@ -99,7 +106,8 @@ typedef void (^FICImageRequestCompletionBlock)(UIImage *sourceImage);
      
      typedef void (^FICImageCacheCompletionBlock)(id <FICEntity> entity, NSString *formatName, UIImage *image)
  */
-- (void)setImage:(UIImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageCacheCompletionBlock)completionBlock;
+
+- (void)setImage:(COCOAImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageCacheCompletionBlock)completionBlock;
 
 /**
  Attempts to synchronously retrieve an image from the image cache.

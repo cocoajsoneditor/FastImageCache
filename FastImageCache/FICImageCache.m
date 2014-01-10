@@ -91,8 +91,13 @@ static dispatch_queue_t __imageCacheDispatchQueue = NULL;
         [self _logMessage:[NSString stringWithFormat:@"*** FIC Error: %s FICImageCache has already been configured with its image formats.", __PRETTY_FUNCTION__]];
     } else {
         NSMutableSet *imageTableFiles = [NSMutableSet set];
+#if TARGET_OS_IPHONE
         FICImageFormatDevices currentDevice = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? FICImageFormatDevicePad : FICImageFormatDevicePhone;
-        for (FICImageFormat *imageFormat in formats) {
+#else
+        FICImageFormatDevices currentDevice = FICImageFormatDeviceDesktop;
+#endif
+        for (FICImageFormat *imageFormat in formats)
+        {
             NSString *formatName = [imageFormat name];
             FICImageFormatDevices devices = [imageFormat devices];
             if (devices & currentDevice) {
@@ -160,7 +165,7 @@ static dispatch_queue_t __imageCacheDispatchQueue = NULL;
         imageExists = YES;
         
         dispatch_async(__imageCacheDispatchQueue, ^{
-            UIImage *image = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
+            COCOAImage *image = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
             
             if (completionBlock != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -169,7 +174,7 @@ static dispatch_queue_t __imageCacheDispatchQueue = NULL;
             }
         });
     } else {
-        UIImage *image = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
+        COCOAImage *image = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
         imageExists = image != nil;
         
         dispatch_block_t completionBlockCallingBlock = ^{
@@ -197,7 +202,7 @@ static dispatch_queue_t __imageCacheDispatchQueue = NULL;
                     [_requests setObject:requestDictionary forKey:sourceImageURL];
                     
                     _FICAddCompletionBlockForEntity(formatName, requestDictionary, entity, completionBlock);
-                    [_delegate imageCache:self wantsSourceImageForEntity:entity withFormatName:formatName completionBlock:^(UIImage *sourceImage) {
+                    [_delegate imageCache:self wantsSourceImageForEntity:entity withFormatName:formatName completionBlock:^(COCOAImage *sourceImage) {
                         [self _imageDidLoad:sourceImage forURL:sourceImageURL];
                     }];
                 } else {
@@ -218,7 +223,7 @@ static dispatch_queue_t __imageCacheDispatchQueue = NULL;
     return imageExists;
 }
 
-- (void)_imageDidLoad:(UIImage *)image forURL:(NSURL *)URL {
+- (void)_imageDidLoad:(COCOAImage *)image forURL:(NSURL *)URL {
     NSDictionary *requestDictionary = [_requests objectForKey:URL];
     if (image != nil && requestDictionary != nil) {
         for (NSMutableDictionary *entityDictionary in [requestDictionary allValues]) {
@@ -266,7 +271,7 @@ static void _FICAddCompletionBlockForEntity(NSString *formatName, NSMutableDicti
 
 #pragma mark - Storing Images
 
-- (void)setImage:(UIImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageCacheCompletionBlock)completionBlock {
+- (void)setImage:(COCOAImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlock:(FICImageCacheCompletionBlock)completionBlock {
     if (image != nil && entity != nil) {
         NSDictionary *completionBlocksDictionary = nil;
         
@@ -282,7 +287,7 @@ static void _FICAddCompletionBlockForEntity(NSString *formatName, NSMutableDicti
     }
 }
 
-- (void)_processImage:(UIImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlocksDictionary:(NSDictionary *)completionBlocksDictionary {
+- (void)_processImage:(COCOAImage *)image forEntity:(id <FICEntity>)entity withFormatName:(NSString *)formatName completionBlocksDictionary:(NSDictionary *)completionBlocksDictionary {
     FICImageFormat *imageFormat = [_formats objectForKey:formatName];
     NSString *formatFamily = [imageFormat family];
     NSString *entityUUID = [entity UUID];
@@ -314,7 +319,7 @@ static void _FICAddCompletionBlockForEntity(NSString *formatName, NSMutableDicti
     }
 }
 
-- (void)_processImage:(UIImage *)image forEntity:(id <FICEntity>)entity imageTable:(FICImageTable *)imageTable completionBlocks:(NSArray *)completionBlocks {
+- (void)_processImage:(COCOAImage *)image forEntity:(id <FICEntity>)entity imageTable:(FICImageTable *)imageTable completionBlocks:(NSArray *)completionBlocks {
     if (imageTable != nil) {
         if ([entity UUID] == nil) {
             [self _logMessage:[NSString stringWithFormat:@"*** FIC Error: %s entity %@ is missing its UUID.", __PRETTY_FUNCTION__, entity]];
@@ -335,7 +340,7 @@ static void _FICAddCompletionBlockForEntity(NSString *formatName, NSMutableDicti
         dispatch_async(__imageCacheDispatchQueue, ^{
             [imageTable setEntryForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID imageDrawingBlock:imageDrawingBlock];
 
-            UIImage *resultImage = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
+            COCOAImage *resultImage = [imageTable newImageForEntityUUID:entityUUID sourceImageUUID:sourceImageUUID];
             
             if (completionBlocks != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
